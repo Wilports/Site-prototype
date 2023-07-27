@@ -1,0 +1,28 @@
+<!doctype html>
+{% extends "perevozka/layout.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="main-divform-1">
+ <h1 class="text-danger text-center ">ОСТАВЬТЕ СВОЙ ЗАКАЗ</h1>
+ <p class="text-center">Наш менеджер свяжется с вами в ближайшее время для
+  уточнения дополнительных деталей</p>
+ <form method="post">
+  <div class="form-row d-flex justify-content-center ">
+   <div class="form-group col-lg-6 col-xl-6">
+    {% csrf_token %}
+    {{ form.email }}<br>
+    {{ form.telephone }}<br>
+    {{ form.name }}<br>
+    {{ form.organization }}<br>
+    {{ form.full_text }}<br>
+   </div>
+  </div>
+  <div class="d-flex justify-content-center">
+   <button class="btn btn-warning btn-md btn-block btn-class" type="submit">ОФОРМИТЬ ЗАКАЗ</button>
+  </div>
+ </form>
+</div>
+
+{% endblock %}

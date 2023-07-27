@@ -1,0 +1,27 @@
+<!doctype html>
+{% extends "perevozka/layout.html" %}
+{% load static %}
+
+{% block title %} {{ article.title}} | ДРАЙВ {% endblock %}
+
+{% block content %}
+
+<div class="settings-text">
+ <h1>{{ article.title }}</h1>
+ <p class="text-muted">{{ article.time}}</p>
+ <div class="linenews"><hr /></div>
+ <div class="row g-4">
+  <div class =".col">
+   {% if article.image %}
+    <img src= "{{article.image.url}}" class="image-in-col">
+   {% endif %}
+   <p>{{ article.full_text | linebreaks}}</p>
+  </div>
+  <div class =".col box">
+   <p>НУЖНА КОНСУЛЬТАЦИЯ? СВЯЖИТЕСЬ С НАМИ!</p>
+   <p>8(800)123-45-67</p>
+  </div>
+ </div>
+</div>
+
+{% endblock %}

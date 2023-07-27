@@ -1,0 +1,21 @@
+<!doctype html>
+{% extends "perevozka/layout.html" %}
+{% load static %}
+
+{% block content %}
+
+<h1 class="text-danger text-center">НОВОСТИ И АКЦИИ</h1>
+<div class="row g-4 settings-text">
+ {% for n in news %}
+  <div class =".col">
+   {% if n.image %}
+    <img src= "{{n.image.url}}" class="image-in-col">
+   {% endif %}
+   <a href="{{ n.get_absolute_url }}">{{ n.title }}</a>
+   <p class="text-muted">{{ n.time}}</p>
+   <p>{{ n.full_text | linebreaks | truncatewords:70 }}</p>
+  </div>
+ {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,82 @@
+<!doctype html>
+{% extends "perevozka/layout.html" %}
+{% load static %}
+
+{% block title %} ДРАЙВ: ОТЗЫВЫ {% endblock %}
+
+
+{% block content %}
+
+<div class="settings-text">
+<h1 class="text-danger text-center ">МНЕНИЯ КЛИЕНТОВ О СОТРУДНИЧЕСТВЕ С ООО "ДРАЙВ":</h1>
+<p>
+    Каждый день множество человек доверяет «Драйву» грузоперевозки
+    своего имущества, и вполне логично, что клиенты хотели бы оставить на сайте
+    отзывы о перевозках. Кто-то остался доволен переездом, кто-то столкнулся
+    со сложностями – например, по каким-то причинам водитель немного задержался
+    – бывает и такое. Для «Драйва» важно, чтобы каждый из наших
+     дорогих клиентов
+     мог оставить свой отзыв: хорошие комментарии и благодарности радуют нас,
+      негативные отзывы и жалобы – повод улучшить качество грузоперевозок,
+       переездов и обслуживания. Если во время поездки что-то пойдет не так,
+       то вы всегда можете об этом написать нам. Ждем ваших откликов!
+</p>
+<hr />
+{% for p in page_obj %}
+ <div class="border-top border-bottom" id="comment">
+  <div id="comment-text">
+   <img src="{% static "perevozka/images/human.png"%}" id="comment-img">
+   <h5>{{ p.name }}</h5>
+   <p class="text-muted">{{ p.time}}</p>
+   <p>{{ p.full_text }}</p>
+  </div>
+ </div>
+ <br />
+{% endfor %}
+
+<div class="line"><hr /></div>
+
+  {% if page_obj.has_other_pages %}
+   <nav class="paginator">
+    <ul>
+     {% for p in page_obj.paginator.page_range %}
+
+     {% if page_obj.number == p %}
+      <li class="paginator_li">{{ p }}</li>
+
+     {% elif p >= page_obj.number|add:-4 and p <= page_obj.number|add:4  %}
+
+      <li class="paginator_li">
+       <a href="?page={{ p }}">{{ p }}</a>
+      </li>
+      {% endif %}
+
+      {% endfor %}
+     </ul>
+    {% endif %}
+   </nav>
+  </div>
+
+
+<h1 class="text-danger text-center ">ОСТАВЬТЕ СВОЙ ОТЗЫВ О НАС</h1>
+<p class="text-center">Позвоните по номеру +7 (987) 654 32 10 или заполните форму ниже</p>
+
+ <form method="post">
+   <div class="form-row d-flex justify-content-center">
+      <div class=" form-group col-md-4 col-lg-4 col-xl-6">
+          {% csrf_token %}
+          {{ form.email }}
+          {{ form.name }}
+          {{ form.full_text }}
+
+      <div class="d-grid">
+        <button class="btn btn-warning" type="submit">ОТПРАВИТЬ ОТЗЫВ</button>
+      </div>
+
+     </div>
+   </div>
+  </form>
+
+
+
+{% endblock %}

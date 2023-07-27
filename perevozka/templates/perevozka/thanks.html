@@ -1,0 +1,25 @@
+<!doctype html>
+{% extends "perevozka/layout.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="settings-text">
+ <img src= "{% static "perevozka/images/done.png"%}" id="done-image">
+ <h1 class="text-danger text-center ">БЛАГОДАРИМ ЗА ВЫБОР!</h1>
+
+ <div class="order-text">
+  <h2>Ваш номер заказа: {{ order.id }}</h2>
+<p class="">В ближайшее время с Вами свяжется наш менеджер для
+ уточнения заказа. В дальнейшем, Вы сможете узнать о его статусе: просто напишите
+ нам на почту <font class="fw-bolder">info@example.com</font> или наберите бесплатный номер <font class="fw-bolder">8(800)123-45-67.</font></p>
+
+<a class="btn btn-warning btn-class" href="{% url 'Home' %}">НА ГЛАВНУЮ</a>
+ </div>
+</div>
+
+
+
+
+
+{% endblock %}

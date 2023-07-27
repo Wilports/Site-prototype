@@ -1,0 +1,134 @@
+<!doctype html>
+{% extends "perevozka/layout.html" %}
+{% load static %}
+
+
+{% block title %} ДРАЙВ: перевозки по Ставропольскому краю {% endblock %}
+
+
+{% block content %}
+
+  <div class="main-window">
+   <img src= "{% static "perevozka/images/main-image.jpg"%}" class="main-image">
+   <div class="centered d-none d-lg-block">
+    ПЕРЕВОЗКИ ПО СТАВРОПОЛЬСКОМУ КРАЮ И ЮГУ РОССИИ✓
+   </div>
+   <a class="d-lg-none btn btn-warning centered-2" href="#">ОСТАВЬТЕ СВОЙ ЗАКАЗ</a>
+ </div>
+
+ <div class="settings-text">
+
+<h1 class="text-danger text-center ">КАК РАБОТАЕТ "ДРАЙВ"?</h1>
+
+<p class="text-center меню ">Вы подаете заявку на услуги грузоперевозки по телефону,
+ на электронную почту или через наше <a href="{% url 'Orders' %}"><b>меню</b></a>.
+ Компания рассчитывает предварительную стоимость и сроки перевозки в день обращения.
+ Затем, мы с Вами заключаем договор (высылается на Вашу почту), в котором закрепляются
+ обязательства сторон, окончательная цена и дата погрузки. Компания выбирает маршрут
+ и автотранспорт, гарантируя перевозку по графику и 100-процентную
+ сохранность Ваших товаров и личных вещей.</p>
+
+<div class="content" >
+ <div class="outline-3" >
+  <img src= "{% static "perevozka/images/step1.png"%}" class="step-images">
+  <p class="text-2">Принимаем заявку</p>
+ </div>
+
+ <div class="outline-3">
+  <img src= "{% static "perevozka/images/step2.png"%}" class="step-images">
+  <p class="text-2">Расчитываем стоимость</p>
+ </div>
+
+ <div class="outline-3">
+  <img src= "{% static "perevozka/images/step3.png"%}" class="step-images">
+  <p class="text-2">Уточняем с Вами все детали</p>
+ </div>
+
+ <div class="outline-3" >
+  <img src= "{% static "perevozka/images/step4.png"%}" class="step-images">
+  <p class="text-2">Заключаем договор на доставку</p>
+ </div>
+
+ <div class="outline-3">
+  <img src= "{% static "perevozka/images/step5.png"%}" class="step-images">
+  <p class="text-2">Бережно перевозим груз</p>
+ </div>
+
+ <div class="outline-3">
+  <img src= "{% static "perevozka/images/step6.png"%}" class="step-images">
+  <p class="text-2">Доставляем груз в пункт назначения!</p>
+ </div>
+</div>
+
+ <h1 class="text-danger text-center ">ПОЧЕМУ ЛЮДИ ВЫБИРАЮТ НАС?</h1><br />
+
+  <h5 class="text-dark">1) НАДЕЖНОСТЬ</h5>
+  <p>
+ООО "ДРАЙВ" оказывает для вас комплекс транспортно-
+логистических услуг с 2007 года. За это время мы имели и имеем дело с деловыми
+людьми, которые ценят высокий сервис, и перевезли множество грузов в самые
+дальние точки Ставропольского края. Полученный опыт в нашем деле позволяет нам
+говорить о выработанном серьезном подходе, который мы готовы проявить для
+каждого нашего клиента. "ДРАЙВ" возьмет на себя все хлопоты по
+ организации движения вашего товара, а также сэкономит ваши время и деньги,
+ осуществив поставку в самые короткие сроки Посмотрите отзывы благодарнных
+  клиентов, а если хотите, то и оставьте свой о том, насколько
+  наши принципы соответствуют стандартам высшего качества!.
+  </p>
+
+
+
+<h5 class="text-dark">2) СОБСТВЕННЫЙ АВТОПАРК</h5>
+<p>
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+ nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+   eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum."
+</p>
+
+
+
+<h5 class="text-dark">3) СОТРУДНИКИ - НАША ГОРДОСТЬ </h5>
+<p>
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+ nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+   eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum."
+</p>
+
+
+<h5 class="text-dark">4) ДОСТОЙНАЯ ЦЕНА</h5>
+<p>
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+ incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+  nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+   eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum."
+</p>
+</div>
+
+
+
+
+<br><br>
+
+<div class="row">
+
+          <div class="col-xl-6 col-lg-6 col-md-12">
+                <img style= "width: 90%; height: 90%" src="{% static "perevozka/images/index-image-1.jpg"%}"  >
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12">
+                <h1 class="display-2 text-danger text-center"><strong>ДРАЙВ:<br>
+                  <h1 class="display-3 text-danger text-center">МЫ ЗНАЕМ,
+                  КАК НАДО! ✓</h1>
+            </div>
+
+</div>
+
+
+{% endblock %}

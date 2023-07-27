@@ -1,0 +1,126 @@
+<!doctype html>
+{% extends "perevozka/layout.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="settings-text">
+
+ <h1 class="text-danger text-center ">МЕЖДУГОРОДНИЕ ПЕРЕВОЗКИ ГРУЗОВ</h1>
+
+ <p>Наша компания готова отправить груз в соседний город или любой по Ставропольскому краю.
+   Клиентами могут быть частные лица, предприятия и ритейлеры, заинтересованные в
+   междугородней доставке. Мы сотрудничаем с бизнесом на регулярной или разовой основе,
+   организуя перевозки любых товаров, в том числе с особыми условиями хранения,
+   а также крупногабаритных и негабаритных грузов. Частные лица могут заказать
+   доставку личных вещей.</p>
+
+ <hr>
+ <p class="text-2">Грузовики с тентом</p>
+
+   <div class="trucks" >
+    {% for t in trucks %}
+    {% if t.tipe == "Тент" %}
+    <div class="outline-1" >
+     <p><img src= "{{t.image.url}}" id="truck-image"></p>
+     <p class="text-2">{{ t.tonnage }}</p>
+     <p class="text-2">{{ t.price }}</p>
+     <a class="btn btn-warning btn-md btn-block btn-class2 popup-open" href="#">БЫСТРЫЙ ЗАКАЗ</a>
+    </div>
+    {% endif %}
+    {% endfor %}
+   </div>
+
+ <hr>
+ <p class="text-2">Грузовики с бортом</p>
+
+ <div class="trucks" >
+  {% for t in trucks %}
+  {% if t.tipe == "Борт" %}
+  <div class="outline-1" >
+   <p><img src= "{{t.image.url}}" id="truck-image"></p>
+   <p class="text-2">{{ t.tonnage }}</p>
+   <p class="text-2">{{ t.price }}</p>
+   <a class="btn btn-warning btn-md btn-block btn-class2 popup-open" href="#">БЫСТРЫЙ ЗАКАЗ</a>
+  </div>
+  {% endif %}
+  {% endfor %}
+ </div>
+
+ <hr>
+
+<div class="text-right">
+ Остались вопросы? <br>
+ С радостью ответим! Звоните: <b>8(800)123-45-67</b>
+ </div>
+
+ <div class="popup-fade">
+ 	<div class="popup">
+ 		<a class="popup-close" href="#">Х</a>
+    <form method="post">
+     <div class="form">
+      <div>
+        <p><h3 class="text-danger text-center">Закажите в пару кликов!</h3></p>
+        <hr>
+        <p><h4 class="text-2 text-center">Мы уточним детали по телефону</h4></p>
+       {% csrf_token %}
+       {{ form.organization }} <br>
+       {{ form.name }}<br>
+       {{ form.telephone }}<br>
+      </div>
+     </div>
+     <div class="d-flex justify-content-center">
+      <button class="btn btn-warning btn-md btn-block btn-class" type="submit">ОФОРМИТЬ ЗАКАЗ</button>
+     </div>
+    </form>
+ 	</div>
+ </div>
+
+
+
+
+
+ <script>
+ $(document).ready(function($) {
+
+
+ 	$('.popup-open').click(function() {
+ 		$('.popup-fade').fadeIn();
+ 		return false;
+ 	});
+
+ 	$('.popup-close').click(function() {
+ 		$(this).parents('.popup-fade').fadeOut();
+ 		return false;
+ 	});
+
+ 	$(document).keydown(function(e) {
+ 		if (e.keyCode === 27) {
+ 			e.stopPropagation();
+ 			$('.popup-fade').fadeOut();
+ 		}
+ 	});
+
+ 	$('.popup-fade').click(function(e) {
+ 		if ($(e.target).closest('.popup').length == 0) {
+ 			$(this).fadeOut();
+ 		}
+ 	});
+
+
+ });
+ </script>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+{% endblock %}
